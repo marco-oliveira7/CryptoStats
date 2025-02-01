@@ -1,0 +1,52 @@
+
+
+li {
+  cursor: pointer;
+  position: relative;
+  transition: all 1s ease-in-out;
+}
+
+li::after{
+    content: '';
+    transition: all .3s ease-in-out;
+}
+
+li:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 1px;
+}
+
+select {
+  border: 1px solid white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  transition: all 0.3s;
+}
+
+.options {
+  color: white;
+  font-weight: 500;
+}
+
+select:focus {
+  background: #1f253d;
+}
+
+.singUp {
+  border: 1px solid white;
+  padding: 0.7rem 1.3rem;
+  border-radius: 1.2rem;
+  transition: all 0.3s;
+}
+
+.singUp:hover {
+  transform: scale(1.1);
+  background-color: #fff;
+  color: #090a0f;
+  box-shadow: 0px 0px 5px #ffffff;
+}

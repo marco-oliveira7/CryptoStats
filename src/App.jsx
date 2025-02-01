@@ -1,14 +1,21 @@
-import List from "./components/List/list"
-import Search from "./components/Search/search"
+import Background from "./components/Background/Background";
+import List from "./components/List/list";
+import NavBar from "./components/NavBar/NavBar";
+import Search from "./components/Search/search";
 
 function App() {
-
   return (
-    <div className="">
-      <Search></Search>
-      <List></List>
-    </div>
-  )
+    <>
+      <Background />
+      <div className="containerBox">
+        <NavBar />
+        <div className="main">
+          <Search />
+          <List />
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default App
+export default App;

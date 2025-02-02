@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import styles from "./List.module.css";
+import { CoinContext } from "../../context/CoinContext";
 
 function list() {
-  const options = { method: "GET", headers: { accept: "application/json" } };
-
-  // fetch('https://api.coingecko.com/api/v3/coins/markets', options)
-  // .then((res) => res.json())
-  // .then((res) => console.log(res))
-  // .catch(err => console.error(err));
-
+  // const allCoin = useContext(CoinContext);
   return (
-    <div className="text-white mt-10">
-      <div>
+    <div className={styles.table}>
+      <div className={styles.tableLayout}>
+        <p>#</p>
         <p>Name</p>
         <p>Price</p>
+        <p>24H Change</p>
         <p>Market Cap</p>
+      </div>
+      <div>
+        
       </div>
     </div>
   );

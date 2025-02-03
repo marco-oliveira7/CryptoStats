@@ -1,6 +1,7 @@
 import Background from "./components/Background/Background";
 import List from "./components/List/list";
 import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/footer";
 import Search from "./components/Search/search";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Search />
           <List />
         </div>
+        <Footer></Footer>
       </div>
     </>
   );

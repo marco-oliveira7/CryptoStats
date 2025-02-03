@@ -14,11 +14,11 @@ function NavBar() {
   }
 
   return (
-    <div className="bg-[radial-gradient(ellipse_at_top,_#1f253d_0%,_#090a0f_100%)] w-screen flex justify-center items-center py-6 font-semibold text-white nav">
+    <div className="bg-[radial-gradient(ellipse_at_top,_#1f253d_0%,_#090a0f_100%)] w-full flex justify-center items-center py-6 font-semibold text-white">
       <ul className="flex justify-evenly w-1/2">
         <li className="">Home</li>
-        <li className="">Prices</li>
-        <li className="">Features</li>
+        <li className={styles.prices}>Prices</li>
+        <li className={styles.features}>Features</li>
       </ul>
       <div className="w-1/2 flex justify-center">
         <select className="mr-10" onChange={handlerCurrency}>

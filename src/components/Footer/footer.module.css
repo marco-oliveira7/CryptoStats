@@ -1,0 +1,7 @@
+.footer{
+    color: #fff;
+    height: calc(1/7 * 100vh);
+    background: radial-gradient(ellipse at bottom, #293257 0%, #1b1e2e 100%);
+    display: flex;
+    margin-top: 3rem;
+}

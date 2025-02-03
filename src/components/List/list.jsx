@@ -5,15 +5,14 @@ import { CoinContext } from "../../context/CoinContext";
 function list() {
   const { allCoin, currency } = useContext(CoinContext);
   const [displayCoin, setDisplayCoin] = useState([]);
-
   const [limit, setLimit] = useState(10)
 
   useEffect(() => {
     setDisplayCoin(allCoin);
   }, [allCoin]);
 
-  function showMoreCoins() {
-    
+  function showMoreCoins(e) {
+    setLimit((l) => l + 10)
   }
 
   return (
@@ -31,7 +30,7 @@ function list() {
 
           <div className="flex pr-3">
             <img src={item.image} className="w-7 h-7" />
-            <p className="self-center m-auto">{item.name}</p>
+            <p className="self-center m-auto cursor-pointer">{item.name}</p>
           </div>
 
           <div className="flex justify-between ml-7">
@@ -39,14 +38,14 @@ function list() {
             <p>{item.current_price.toLocaleString()}</p>
           </div>
 
-          <p className="text-right">{Math.floor(item.price_change_percentage_24h * 100) / 100}</p>
+          <p className={item.price_change_percentage_24h > 0 ? "text-right text-green-600" : "text-right text-red-500"}>{Math.floor(item.price_change_percentage_24h * 100) / 100}</p>
           
           <p>
-            {currency.symbol} {item.market_cap.toLocaleString()}
+            <span>{currency.symbol}</span> {item.market_cap.toLocaleString()}
           </p>
         </div>
       ))}
-      <button className="px-2 py-1 bg-amber-500" onClick={() => setLimit((l) => l + 10)}>Show More Coins</button>
+      <button className={styles.showMoreCoins} onClick={showMoreCoins}>Show More Coins</button>
     </div>
   );
 }

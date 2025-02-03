@@ -3,7 +3,7 @@ import styles from "./Navbar.module.css";
 import { CoinContext } from "../../context/CoinContext";
 
 function NavBar() {
-  const setCurrency = useContext(CoinContext);
+  const {setCurrency} = useContext(CoinContext);
 
   function handlerCurrency(e) {
     if(e.target.value === 'usd'){

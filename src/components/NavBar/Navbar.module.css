@@ -1,3 +1,15 @@
+
+.nav {
+  background: radial-gradient(ellipse at top, #1f253d 0%, #090a0f 100%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  font-weight: 600;
+  color: white;
+}
+
 li {
   cursor: pointer;
   position: relative;

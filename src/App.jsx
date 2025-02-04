@@ -1,8 +1,7 @@
 import Background from "./components/Background/Background";
-import List from "./components/List/list";
+import Home from "./components/Home/Home";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/footer";
-import Search from "./components/Search/search";
 
 function App() {
   return (
@@ -11,8 +10,7 @@ function App() {
       <div className="containerBox">
         <NavBar />
         <div className="main">
-          <Search />
-          <List />
+          <Home />
         </div>
         <Footer></Footer>
       </div>

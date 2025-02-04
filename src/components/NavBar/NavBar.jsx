@@ -14,7 +14,7 @@ function NavBar() {
   }
 
   return (
-    <div className="bg-[radial-gradient(ellipse_at_top,_#1f253d_0%,_#090a0f_100%)] w-full flex justify-center items-center py-6 font-semibold text-white">
+    <div className={styles.nav}>
       <ul className="flex justify-evenly w-1/2">
         <li className="">Home</li>
         <li className={styles.prices}>Prices</li>

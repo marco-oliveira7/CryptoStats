@@ -6,25 +6,27 @@ function Home() {
   const { allCoin, currency } = useContext(CoinContext);
   const [displayCoin, setDisplayCoin] = useState([]);
   const [limit, setLimit] = useState(10);
-  const [coin, setCoin] = useState("");
+  const [input, setInput] = useState("");
   const [names, setNames] = useState([]);
 
   useEffect(() => {
     setDisplayCoin(allCoin);
   }, [allCoin]);
 
-  function showMoreCoins(e) {
-    setLimit((l) => l + 10);
+  function handlerInput(e){
+    setInput(e.target.value)
+    if(e.target.value === ""){
+      setDisplayCoin(allCoin)
+    }
   }
 
-  function searchCoin() {
-    displayCoin.slice(0, limit).map((item) => {
-      if(coin.includes(item.name)){
-        console.log(item.name)
-      }else{
-        console.log('na')
-      }
+  async function searchCoin(e) {
+    e.preventDefault();
+    const coins = await allCoin.filter((item) => {
+      return item.name.toLowerCase().includes(input.toLowerCase());
     });
+
+    setDisplayCoin(coins);
   }
 
   return (
@@ -33,9 +35,13 @@ function Home() {
         <input
           type="text"
           className={styles.searchBox}
-          value={coin}
-          onChange={(e) => setCoin(e.target.value)}
+          value={input}
+          onChange={handlerInput}
+          list="coinlist"
         />
+        <datalist id="coinlist">
+          {allCoin.map((item, index) => <option key={index} value={item.name}/>)}
+        </datalist>
         <button className={styles.searchButton} onClick={searchCoin}>
           Search
         </button>
@@ -82,9 +88,16 @@ function Home() {
             </p>
           </div>
         ))}
-        <button className={styles.showMoreCoins} onClick={showMoreCoins}>
-          Show More Coins
-        </button>
+        <div className="flex justify-around items-center">
+          <button className={styles.showMoreCoins} onClick={() => setLimit((l) => l + 10)}>
+            Show More Coins
+          </button>
+          {limit > 10 ? (
+            <button className={styles.hideCoins} onClick={() => setLimit((l) => l - 10)}>
+              Hide Coins
+            </button>
+          ) : null}
+        </div>
       </div>
     </>
   );

@@ -1,9 +1,9 @@
-.footer{
-    color: #fff;
-    height: calc(1/7 * 100vh);
-    background: radial-gradient(ellipse at bottom, #1a1e31 0%, #08090e 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3rem;
+.footer {
+  color: #fff;
+  background: radial-gradient(ellipse at bottom, #1a1e31 0%, #08090e 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 3rem;
 }

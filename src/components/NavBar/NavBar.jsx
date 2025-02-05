@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styles from "./Navbar.module.css";
 import { CoinContext } from "../../context/CoinContext";
+import { Link } from 'react-router-dom'
 
 function NavBar() {
   const {setCurrency} = useContext(CoinContext);
@@ -16,7 +17,7 @@ function NavBar() {
   return (
     <div className={styles.nav}>
       <ul className="flex justify-evenly w-1/2">
-        <li className="">Home</li>
+        <Link className="" to={'/'}>Home</Link>
         <li className={styles.prices}>Prices</li>
         <li className={styles.features}>Features</li>
       </ul>

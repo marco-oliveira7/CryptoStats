@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./Home.module.css";
 import { CoinContext } from "../../context/CoinContext";
+import { Link } from "react-router-dom";
 
 function Home() {
   const { allCoin, currency } = useContext(CoinContext);
@@ -13,10 +14,10 @@ function Home() {
     setDisplayCoin(allCoin);
   }, [allCoin]);
 
-  function handlerInput(e){
-    setInput(e.target.value)
-    if(e.target.value === ""){
-      setDisplayCoin(allCoin)
+  function handlerInput(e) {
+    setInput(e.target.value);
+    if (e.target.value === "") {
+      setDisplayCoin(allCoin);
     }
   }
 
@@ -40,7 +41,9 @@ function Home() {
           list="coinlist"
         />
         <datalist id="coinlist">
-          {allCoin.map((item, index) => <option key={index} value={item.name}/>)}
+          {allCoin.map((item, index) => (
+            <option key={index} value={item.name} />
+          ))}
         </datalist>
         <button className={styles.searchButton} onClick={searchCoin}>
           Search
@@ -56,10 +59,10 @@ function Home() {
           <p className={styles.marketCap}>Market Cap</p>
         </div>
         {displayCoin.slice(0, limit).map((item, index) => (
-          <div
+          <Link
             className={styles.tableLayout}
             key={index}
-            // onClick={setCoin()}
+            to={`/coin/${item.id}`}
           >
             <p>{item.market_cap_rank}</p>
 
@@ -86,14 +89,20 @@ function Home() {
             <p className={styles.marketCap}>
               <span>{currency.symbol}</span> {item.market_cap.toLocaleString()}
             </p>
-          </div>
+          </Link>
         ))}
         <div className="flex justify-around items-center">
-          <button className={styles.showMoreCoins} onClick={() => setLimit((l) => l + 10)}>
+          <button
+            className={styles.showMoreCoins}
+            onClick={() => setLimit((l) => l + 10)}
+          >
             Show More Coins
           </button>
           {limit > 10 ? (
-            <button className={styles.hideCoins} onClick={() => setLimit((l) => l - 10)}>
+            <button
+              className={styles.hideCoins}
+              onClick={() => setLimit((l) => l - 10)}
+            >
               Hide Coins
             </button>
           ) : null}

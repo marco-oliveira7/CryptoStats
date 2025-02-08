@@ -17,7 +17,7 @@ function NavBar() {
   return (
     <div className={styles.nav}>
       <ul className="flex justify-evenly w-1/2">
-        <Link className="" to={'/'}>Home</Link>
+        <Link className='' to={'/'}>Home</Link>
         <li className={styles.prices}>Prices</li>
         <li className={styles.features}>Features</li>
       </ul>

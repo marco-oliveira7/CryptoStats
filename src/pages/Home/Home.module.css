@@ -131,7 +131,11 @@
   .table {
     width: 100%;
   }
+  .inputWrapper{
+    width: 50%;
+  }
 }
+
 @media (width < 768px) {
   .tableLayout {
     grid-template-columns: 0.5fr 3fr 1fr 1fr;
@@ -148,5 +152,15 @@
 
   .searchButton {
     font-size: small;
+  }
+}
+
+@media (width < 388px){ 
+  .inputWrapper{
+    width: 100%;
+  }
+
+  .tableLayout{
+    padding: 1rem 0;
   }
 }

@@ -44,23 +44,29 @@ const Coin = () => {
 
   useEffect(() => {
     fetchCoinData();
-    fetchHistoricalData()
+    fetchHistoricalData();
   }, [currency]);
 
   if (coinData && historicalData) {
     return (
       <div className={styles.coin}>
         <div className={styles.coinName}>
-          <img src={coinData.image.large} alt="" />
-          <p><b>{coinData.name} ({coinData.symbol.toUpperCase()})</b></p>
+          <img className="w-48" src={coinData.image.large} alt="" />
+          <p className="text-2xl text-white">
+            <b>
+              {coinData.name} ({coinData.symbol.toUpperCase()})
+            </b>
+          </p>
         </div>
         <div className={styles.coinChart}>
-          <LineChart historicalData={historicalData}/>
+          <LineChart historicalData={historicalData} />
         </div>
         <div className={styles.coinDetails}>
-          <p>{coinData.market_cap_rank}</p>
-          <p>{coinData.market_cap}</p>
-          <p>{coinData.market_data.current_price[currency.name]}</p>
+          <p className={styles.details}>Market Rank: <span>{coinData.market_cap_rank}</span></p>
+          <p className={styles.details}>Market Cap: <span>{currency.symbol} {coinData.market_data.market_cap[currency.name].toLocaleString()}</span></p>
+          <p className={styles.details}>Current Price: <span>{currency.symbol} {coinData.market_data.current_price[currency.name].toLocaleString()}</span></p>
+          <p className={styles.details}>Highest Price 24H: <span>{currency.symbol} {coinData.market_data.high_24h[currency.name].toLocaleString()}</span></p>
+          <p className={styles.details}>Lowest Price 24H: <span>{currency.symbol} {coinData.market_data.low_24h[currency.name].toLocaleString()}</span></p>
         </div>
       </div>
     );

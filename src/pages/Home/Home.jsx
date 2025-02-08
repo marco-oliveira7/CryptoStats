@@ -31,7 +31,7 @@ function Home() {
 
   return (
     <>
-      <div className={styles.inputWrapper}>
+      <form className={styles.inputWrapper}>
         <input
           type="text"
           className={styles.searchBox}
@@ -47,7 +47,7 @@ function Home() {
         <button className={styles.searchButton} onClick={searchCoin}>
           Search
         </button>
-      </div>
+      </form>
 
       <div className={styles.table}>
         <div className={styles.tableLayout}>

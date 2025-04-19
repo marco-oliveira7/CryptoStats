@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/footer";
 import { Routes, Route } from "react-router-dom";
 import Coin from "./pages/Coin/Coin";
+
 function App() {
   return (
     <>
